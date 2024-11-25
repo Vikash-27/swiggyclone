@@ -17,7 +17,10 @@
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin-top: 24px;
-  width: 50%;
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .search-box {
@@ -42,48 +45,4 @@
 
 .search-button:hover {
   background-color: #3e8e41;
-}
-
-.Restaurant-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 24px;
-  width: 50%;
-}
-
-.Res-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.RestaurantCard-container {
-  margin: 16px;
-  width: 250px;
-}
-
-.load-more-button {
-  background-color: #4CAF50;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.load-more-button:hover {
-  background-color: #3e8e41;
-}
-
-.load-more-button {
-  background-color: #4CAF50;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  display: block; /* Add this line */
-  margin: 16px auto; /* Add this line */
-  width: fit-content; /* Add this line */
 }
