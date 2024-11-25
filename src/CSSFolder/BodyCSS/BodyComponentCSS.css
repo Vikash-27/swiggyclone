@@ -1,8 +1,89 @@
 /* BodyComponentCSS.css */
 
 .Body-container {
-    background-color: #F7F7F7;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-  }
+  background-color: #F7F7F7;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-container {
+  background-color: #fff;
+  padding: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 24px;
+  width: 50%;
+}
+
+.search-box {
+  width: 70%;
+  height: 40px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+}
+
+.search-button {
+  width: 20%;
+  height: 40px;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.search-button:hover {
+  background-color: #3e8e41;
+}
+
+.Restaurant-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 24px;
+  width: 50%;
+}
+
+.Res-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.RestaurantCard-container {
+  margin: 16px;
+  width: 250px;
+}
+
+.load-more-button {
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.load-more-button:hover {
+  background-color: #3e8e41;
+}
+
+.load-more-button {
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  display: block; /* Add this line */
+  margin: 16px auto; /* Add this line */
+  width: fit-content; /* Add this line */
+}
