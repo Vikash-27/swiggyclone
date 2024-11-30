@@ -4,37 +4,56 @@ import RestaurantCardComponent from './RestaurantCardComponent';
 import ShimmerComponent from './ShimmerComponent';
 
 const BodyComponent = () => {
-  const [restaurantList, setRestaurantList] = useState([]);
+  const [restaurants, setRestaurants] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
   const [searchText, setSearchText] = useState('');
-  const [filteredRestaurantList, setFilteredRestaurantList] = useState([]);
+  const [filteredRestaurants, setFilteredRestaurants] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchRestaurants = async () => {
       try {
         const response = await fetch(
-          `https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.67740&lng=83.20360&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING&page=1&pageSize=20`
+          '/api/proxy/swiggy/dapi', // Use proxy URL to avoid CORS issues
+          {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              lat: 17.67740,
+              lng: 83.20360,
+              'is-seo-homepage-enabled': true,
+              'page_type': 'DESKTOP_WEB_LISTING',
+              page: 1,
+              pageSize: 20,
+            }),
+          }
         );
         const data = await response.json();
-        setRestaurantList(data?.data?.cards?.[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-        setFilteredRestaurantList(data?.data?.cards?.[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);  // Initial filtered list is the full list
+        setRestaurants(
+          data?.data?.cards?.[4]?.card?.card?.gridElements?.infoWithStyle
+            ?.restaurants
+        );
+        setFilteredRestaurants(
+          data?.data?.cards?.[4]?.card?.card?.gridElements?.infoWithStyle
+            ?.restaurants
+        );
         setIsLoaded(true);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
     };
-    fetchData();
+    fetchRestaurants();
   }, []);
 
-  // Live search handler: filter restaurants based on user input
   const handleSearchInputChange = (e) => {
-    const input = e.target.value;
+    const input = e.target.value.toLowerCase();
     setSearchText(input);
 
-    const filteredList = restaurantList.filter((restaurant) =>
-      restaurant?.info?.name?.toLowerCase()?.includes(input.toLowerCase())
+    const filteredList = restaurants.filter((restaurant) =>
+      restaurant?.info?.name?.toLowerCase()?.includes(input)
     );
-    setFilteredRestaurantList(filteredList);
+    setFilteredRestaurants(filteredList);
   };
 
   return (
@@ -45,14 +64,14 @@ const BodyComponent = () => {
           type="text"
           placeholder="Search for restaurants"
           value={searchText}
-          onChange={handleSearchInputChange}  // Trigger search as user types
+          onChange={handleSearchInputChange}
         />
       </div>
       <div className="Restaurant-container">
         <div className="Res-list">
           {isLoaded ? (
-            filteredRestaurantList.length > 0 ? (
-              filteredRestaurantList.map((restaurant, index) => (
+            filteredRestaurants.length > 0 ? (
+              filteredRestaurants.map((restaurant, index) => (
                 <RestaurantCardComponent key={index} restaurant={restaurant} />
               ))
             ) : (
