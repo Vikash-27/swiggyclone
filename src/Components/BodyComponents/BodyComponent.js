@@ -13,7 +13,7 @@ const BodyComponent = () => {
   useEffect(() => {
     const fetchRestaurants = async () => {
       try {
-        const response = await fetch(`${link}/api/proxy/swiggy/dapi/restaurants/list/v5?lat=17.67740&lng=83.20360&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`);
+        const response = await fetch(`${link}api/proxy/swiggy/dapi/restaurants/list/v5?lat=17.67740&lng=83.20360&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }

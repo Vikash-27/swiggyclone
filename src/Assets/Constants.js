@@ -1,1 +1,1 @@
-export const link = "https://swiggycors.vercel.app/";
+export const link = "https://food-delivery-cors.vercel.app/";
