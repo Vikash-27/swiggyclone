@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import BodyComponentCSS from '../../CSSFolder/BodyCSS/BodyComponentCSS.css';
 import RestaurantCardComponent from './RestaurantCardComponent';
 import ShimmerComponent from './ShimmerComponent';
+import { link } from '../../Assets/Constants';
 
 const BodyComponent = () => {
   const [restaurants, setRestaurants] = useState([]);
@@ -12,32 +13,14 @@ const BodyComponent = () => {
   useEffect(() => {
     const fetchRestaurants = async () => {
       try {
-        const response = await fetch(
-          '/api/proxy/swiggy/dapi', // Use proxy URL to avoid CORS issues
-          {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              lat: 17.67740,
-              lng: 83.20360,
-              'is-seo-homepage-enabled': true,
-              'page_type': 'DESKTOP_WEB_LISTING',
-              page: 1,
-              pageSize: 20,
-            }),
-          }
-        );
+        const response = await fetch(`${link}/api/proxy/swiggy/dapi/restaurants/list/v5?lat=17.67740&lng=83.20360&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`);
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
         const data = await response.json();
-        setRestaurants(
-          data?.data?.cards?.[4]?.card?.card?.gridElements?.infoWithStyle
-            ?.restaurants
-        );
-        setFilteredRestaurants(
-          data?.data?.cards?.[4]?.card?.card?.gridElements?.infoWithStyle
-            ?.restaurants
-        );
+        const restaurantList = data?.data?.cards?.[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
+        setRestaurants(restaurantList);
+        setFilteredRestaurants(restaurantList);
         setIsLoaded(true);
       } catch (error) {
         console.error('Error fetching data:', error);
