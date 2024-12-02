@@ -14,13 +14,13 @@ const BodyComponent = () => {
     const fetchRestaurants = async () => {
       try {
         const response = await fetch(
-          `${link}/api/proxy/swiggy/dapi/restaurants/list/v5?lat=17.67740&lng=83.20360&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`
+          `${link}api/proxy/swiggy/dapi/restaurants/list/v5?lat=17.67740&lng=83.20360&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`
         );
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data = await response.json();
-        const restaurantList = data?.data?.cards?.[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
+        const restaurantList = data?.data?.cards?.[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
         
         setRestaurants(restaurantList);
         setFilteredRestaurants(restaurantList);
