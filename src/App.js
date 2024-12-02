@@ -1,17 +1,26 @@
-
 import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';  // Import React Router
 import BodyComponent from './Components/BodyComponents/BodyComponent';
 import FooterComponent from './Components/FooterComponents/FooterComponent';
 import HeaderComponent from './Components/HeaderComponents/HeaderComponent';
-import Body from './Components/BodyComponents/Body';
+import About from './Components/HeaderComponents/About';
+import Cart from './Components/HeaderComponents/Cart';
+import Contact from './Components/HeaderComponents/Contact';
 
 function App() {
   return (
-    <div className="App">
-      <HeaderComponent />
-      <BodyComponent/>
-      {/* <Body/> */}
-    </div>
+    <Router> {/* Wrap your app in BrowserRouter for routing */}
+      <div className="App">
+        <HeaderComponent />
+        <Routes> {/* Define routes for different components */}
+          <Route path="/" element={<BodyComponent />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+        {/* <FooterComponent /> */}
+      </div>
+    </Router>
   );
 }
 

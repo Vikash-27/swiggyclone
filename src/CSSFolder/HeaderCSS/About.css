@@ -1,0 +1,44 @@
+/* About.css */
+.about-container {
+    background-color: #fff;
+    color: #333;
+    padding: 50px;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .about-container h1 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #ff5722; /* Swiggy orange color */
+    margin-bottom: 20px;
+  }
+  
+  .about-description {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    color: #555;
+  }
+  
+  .about-footer {
+    font-size: 14px;
+    color: #aaa;
+    margin-top: 50px;
+  }
+  
+  .about-footer p {
+    margin: 0;
+  }
+  
+  /* Add a light border or shadow for the container */
+  .about-container {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: #fff;
+  }
+  

@@ -1,9 +1,9 @@
 /* Body Component Container */
 .Body-container {
   background-color: #F7F7F7;
-  height: 160vh;
+  min-height: 100vh; /* Set minimum height to cover the full screen */
   margin: 0;
-  padding: 0;
+  padding: 20px 0; /* Add vertical padding */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -57,66 +57,68 @@
 /* For Tablets and Smaller Screens */
 @media (max-width: 768px) {
   .Body-container {
-      height: auto; /* Remove fixed height for smaller screens */
+    min-height: auto; /* Let content determine the height */
+    padding: 20px; /* Add some space around the body */
   }
 
   .search-container {
-      width: 90%; /* Increase width for smaller screens */
-      flex-direction: column; /* Stack the search box and button vertically */
-      align-items: stretch; /* Stretch the items to full width */
-      margin-top: 16px; /* Reduce margin between sections */
+    width: 90%; /* Increase width for smaller screens */
+    flex-direction: column; /* Stack the search box and button vertically */
+    align-items: stretch; /* Stretch the items to full width */
+    margin-top: 16px; /* Reduce margin between sections */
   }
 
   .search-box {
-      width: 100%; /* Make the search box full width on smaller screens */
-      margin-bottom: 10px; /* Add some space between the search box and button */
+    width: 100%; /* Make the search box full width on smaller screens */
+    margin-bottom: 10px; /* Add some space between the search box and button */
   }
 
   .search-button {
-      width: 100%; /* Make the search button full width on smaller screens */
+    width: 100%; /* Make the search button full width on smaller screens */
   }
 }
 
 /* For Mobile Devices */
 @media (max-width: 480px) {
   .Body-container {
-      height: auto; /* Remove height restriction */
+    min-height: auto; /* Let content determine the height */
+    padding: 20px; /* Add padding for smaller screens */
   }
 
   .search-container {
-      width: 95%; /* Make the container wider on mobile */
-      padding: 12px; /* Reduce padding for a tighter layout */
+    width: 95%; /* Make the container wider on mobile */
+    padding: 12px; /* Reduce padding for a tighter layout */
   }
 
   .search-box {
-      width: 100%; /* Search box takes full width */
-      height: 35px; /* Reduce height on smaller screens */
-      font-size: 14px; /* Slightly smaller font size */
+    width: 100%; /* Search box takes full width */
+    height: 35px; /* Reduce height on smaller screens */
+    font-size: 14px; /* Slightly smaller font size */
   }
 
   .search-button {
-      width: 100%; /* Button takes full width */
-      height: 35px; /* Reduce button height */
-      font-size: 14px; /* Smaller font size */
+    width: 100%; /* Button takes full width */
+    height: 35px; /* Reduce button height */
+    font-size: 14px; /* Smaller font size */
   }
 }
 
 /* For Larger Screens (e.g., Desktops) */
 @media (min-width: 1024px) {
   .Body-container {
-      height: 160vh; /* Restore original height on larger screens */
+    min-height: auto; /* Let content determine the height */
   }
 
   .search-container {
-      width: 60%; /* Reduce the width on large screens for more space around */
-      margin-top: 40px; /* Add extra space on larger screens */
+    width: 60%; /* Reduce the width on large screens for more space around */
+    margin-top: 40px; /* Add extra space on larger screens */
   }
 
   .search-box {
-      width: 75%; /* Set search box width back to 75% on large screens */
+    width: 75%; /* Set search box width back to 75% on large screens */
   }
 
   .search-button {
-      width: 20%; /* Keep the button at 20% width */
+    width: 20%; /* Keep the button at 20% width */
   }
 }
