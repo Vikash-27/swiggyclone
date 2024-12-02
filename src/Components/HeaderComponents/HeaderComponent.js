@@ -8,7 +8,7 @@ const Header = () => {
     <div className='header-container'>
       <div className="logo-container">
         <img className="swiggylogo" src={Swiggylogo} alt="Swiggy logo" />
-        <span className="copyright-text">&copy; Vikash</span>
+        {/* <span className="copyright-text">&copy; Vikash</span> */}
       </div>   
       <div className='nav-items'>
         <ul className='itemslist'>
