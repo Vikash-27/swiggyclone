@@ -1,30 +1,122 @@
-.header-container{
-    display:flex;
+/* General Header Styles */
+.header-container {
+    display: flex;
     justify-content: space-between;
     margin-bottom: -7px;
     margin-top: -7px;
+    padding: 10px; /* Added padding for some spacing around the container */
 }
 
-.swiggylogo{
-    width:50px;
-    margin-left: 90px;
+/* Swiggy Logo */
+.swiggylogo {
+    width: 50px;
+    margin-left: 10vw; /* Use relative units for better responsiveness */
     margin-top: 30px;
 }
 
-.itemslist{
-   display: flex;
-   list-style-type: none;
+/* List of Items */
+.itemslist {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
 }
 
-.itemslist>li{
+.itemslist > li {
     padding: 10px;
-   margin: 10px;    
-   margin-top: 20px;
+    margin: 10px;
+    margin-top: 20px;
 }
 
+/* Copyright Text */
 .copyright-text {
     font-size: 12px;
     color: #666;
     margin-left: 10px;
     vertical-align: middle;
-  }
+}
+
+/* Responsive Design for Mobile and Tablet */
+@media (max-width: 768px) {
+    /* Stack items vertically on smaller screens */
+    .header-container {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center content */
+    }
+
+    .swiggylogo {
+        margin-left: 0;
+        width: 40px; /* Reduce logo size on smaller screens */
+    }
+
+    .itemslist {
+        flex-direction: column; /* Stack the list items vertically */
+        align-items: center; /* Center align list items */
+    }
+
+    .itemslist > li {
+        margin-top: 10px; /* Adjust margin for smaller screens */
+    }
+
+    .copyright-text {
+        font-size: 10px; /* Make copyright text smaller on mobile */
+        text-align: center; /* Center align the copyright text */
+        margin-left: 0; /* Remove margin for centering */
+        margin-top: 10px; /* Add some top margin */
+    }
+}
+
+/* Responsive Design for Small Screens (Mobile) */
+@media (max-width: 480px) {
+    /* Adjust the header container */
+    .header-container {
+        padding: 5px; /* Reduce padding on very small screens */
+    }
+
+    .swiggylogo {
+        width: 35px; /* Smaller logo on very small screens */
+        margin-left: 5vw; /* Adjust margin */
+    }
+
+    .itemslist {
+        flex-direction: column; /* Stack list vertically on small screens */
+        width: 100%; /* Full width for items */
+        padding: 0 10px; /* Add horizontal padding for spacing */
+    }
+
+    .itemslist > li {
+        margin: 5px; /* Reduce margin for small screens */
+        padding: 8px; /* Reduce padding for small screens */
+    }
+
+    .copyright-text {
+        font-size: 8px; /* Smaller text on small screens */
+        text-align: center;
+    }
+}
+
+/* Responsive Design for Larger Screens */
+@media (min-width: 1024px) {
+    /* For larger screens, we can adjust the layout to be more spacious */
+    .header-container {
+        padding: 20px;
+    }
+
+    .swiggylogo {
+        width: 60px; /* Slightly larger logo on larger screens */
+        margin-left: 10vw; /* Keep margin from left */
+    }
+
+    .itemslist {
+        display: flex; /* Keep the items list horizontal on larger screens */
+        justify-content: space-between;
+    }
+
+    .itemslist > li {
+        margin-top: 10px;
+        margin: 20px;
+    }
+
+    .copyright-text {
+        font-size: 14px; /* Slightly larger text for desktop */
+    }
+}

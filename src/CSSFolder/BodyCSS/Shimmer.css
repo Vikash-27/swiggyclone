@@ -60,3 +60,56 @@
 .ShimmerComponent .ShimmerCard-Details p {
   width: 80%; /* Wider paragraph */
 }
+
+/* Media Queries for Responsiveness */
+
+/* For Tablets (max-width: 768px) */
+@media (max-width: 768px) {
+  .ShimmerComponent {
+    width: 90vw; /* Adjust width to 90% of viewport for smaller devices */
+    height: 70vh; /* Adjust height for smaller screens */
+  }
+
+  .ShimmerComponent .ShimmerCardImage {
+    height: 35vh; /* Adjust image height on tablets */
+  }
+
+  .ShimmerComponent .ShimmerCard-Details h2,
+  .ShimmerComponent .ShimmerCard-Details p {
+    height: 24px; /* Slightly smaller placeholder text on tablets */
+  }
+}
+
+/* For Mobile Devices (max-width: 480px) */
+@media (max-width: 480px) {
+  .ShimmerComponent {
+    width: 95vw; /* Full width on mobile */
+    height: 60vh; /* Reduced height for mobile */
+  }
+
+  .ShimmerComponent .ShimmerCardImage {
+    height: 30vh; /* Adjust image height for mobile */
+  }
+
+  .ShimmerComponent .ShimmerCard-Details h2,
+  .ShimmerComponent .ShimmerCard-Details p {
+    height: 20px; /* Smaller placeholder text for mobile */
+  }
+}
+
+/* For Larger Screens (min-width: 1024px) */
+@media (min-width: 1024px) {
+  .ShimmerComponent {
+    width: 70vw; /* Make shimmer container narrower on larger screens */
+    height: 85vh; /* Increase height on large screens */
+  }
+
+  .ShimmerComponent .ShimmerCardImage {
+    height: 45vh; /* Larger image height for bigger screens */
+  }
+
+  .ShimmerComponent .ShimmerCard-Details h2,
+  .ShimmerComponent .ShimmerCard-Details p {
+    height: 32px; /* Larger placeholder text on desktops */
+  }
+}
