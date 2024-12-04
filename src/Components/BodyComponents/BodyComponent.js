@@ -1,16 +1,14 @@
-import React, { useState, useEffect } from "react";
-import BodyComponentCSS from "../../CSSFolder/BodyCSS/BodyComponentCSS.css";
-import RestaurantCardComponent from "./RestaurantCardComponent";
-import ShimmerComponent from "./ShimmerComponent";
-import { link } from "../../Assets/Constants";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import BodyComponentCSS from '../../CSSFolder/BodyCSS/BodyComponentCSS.css';
+import RestaurantCardComponent from './RestaurantCardComponent';
+import ShimmerComponent from './ShimmerComponent';
+import { link } from '../../Assets/Constants';
 
 const BodyComponent = () => {
   const [restaurants, setRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
-  const [searchText, setSearchText] = useState("");
+  const [searchText, setSearchText] = useState('');
   const [isLoaded, setIsLoaded] = useState(false);
-  const [mindlist, setMindList] = useState([]);
 
   useEffect(() => {
     const fetchRestaurants = async () => {
@@ -22,18 +20,13 @@ const BodyComponent = () => {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data = await response.json();
-        const restaurantList =
-          data?.data?.cards?.[4]?.card?.card?.gridElements?.infoWithStyle
-            ?.restaurants;
-        const sampleData =
-          data?.data?.cards?.[0]?.card?.card?.gridElements?.infoWithStyle?.info;
-
-        setMindList(sampleData); // Save "mindlist" data
+        const restaurantList = data?.data?.cards?.[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+        
         setRestaurants(restaurantList);
         setFilteredRestaurants(restaurantList);
         setIsLoaded(true);
       } catch (error) {
-        console.error("Error fetching data:", error);
+        console.error('Error fetching data:', error);
       }
     };
 
@@ -52,7 +45,6 @@ const BodyComponent = () => {
 
   return (
     <div className="Body-container">
-      {/* Search Bar */}
       <div className="search-container">
         <input
           className="search-box"
@@ -62,38 +54,12 @@ const BodyComponent = () => {
           onChange={handleSearchInputChange}
         />
       </div>
-
-      {/* Mindlist Section */}
-      <h2 className="mindlist-header">What's On Your Mind</h2>
-
-      {/* Mindlist Rendering */}
-      <div className="mindlist-container">
-        {isLoaded && mindlist?.length > 0 ? (
-          mindlist.map((item, index) => (
-            <div key={index} className="mindlist-item">
-              <img
-                src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/${item?.imageId}`}
-                alt={item?.name}
-                className="mindlist-image"
-              />
-              <p className="mindlist-text">{item?.name}</p>
-            </div>
-          ))
-        ) : (
-          <p>Loading Mindlist...</p>
-        )}
-      </div>
-
-      {/* Restaurant List */}
       <div className="Restaurant-container">
         <div className="Res-list">
           {isLoaded ? (
             filteredRestaurants.length > 0 ? (
-              filteredRestaurants.map((restaurant) => (
-                <RestaurantCardComponent
-                  key={restaurant.id}
-                  restaurant={restaurant}
-                />
+              filteredRestaurants.map((restaurant, index) => (
+                <RestaurantCardComponent key={index} restaurant={restaurant} />
               ))
             ) : (
               <p>No restaurants found</p>
