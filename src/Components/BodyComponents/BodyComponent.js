@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import BodyComponentCSS from "../../CSSFolder/BodyCSS/BodyComponentCSS.css";
 import RestaurantCardComponent from "./RestaurantCardComponent";
 import ShimmerComponent from "./ShimmerComponent";
-import ShimmerMindListComponent from '../BodyComponents/ShimmerMindListComponent'// Import the new shimmer component
+import ShimmerMindlistComponent from "./ShimmerMindListComponent"; // Import the new shimmer component
 import { link } from "../../Assets/Constants";
 import { Link } from "react-router-dom";
 
@@ -81,9 +81,15 @@ const BodyComponent = () => {
             </div>
           ))
         ) : (
-          <ShimmerMindListComponent /> // Correct comment syntax here
+          <ShimmerMindlistComponent /> // Correct comment syntax here
         )}
       </div>
+
+      {/* Restaurants Section */}
+      <h2 style={{ fontSize: "24px", fontWeight: "bold", marginTop: "40px", color: "#333" }}>
+  Restaurants with online food delivery in Vizag
+</h2>
+ {/* Added Heading for Restaurants */}
 
       {/* Restaurant List */}
       <div className="Restaurant-container">
