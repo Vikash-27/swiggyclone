@@ -1,9 +1,9 @@
-/* Body Component Container */
+/* Main Container */
 .Body-container {
-  background-color: #F7F7F7;
-  min-height: 100vh; /* Set minimum height to cover the full screen */
+  background-color: #f7f7f7;
+  min-height: 100vh;
   margin: 0;
-  padding: 20px 0; /* Add vertical padding */
+  padding: 20px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,12 +21,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap; /* Allow search box and button to wrap on smaller screens */
 }
 
-/* Search Box */
 .search-box {
-  width: 75%; /* Default width for larger screens */
+  width: 95%;
   height: 40px;
   padding: 10px;
   font-size: 16px;
@@ -34,91 +32,184 @@
   border-radius: 5px;
 }
 
-/* Search Button */
-.search-button {
-  width: 20%;
-  height: 40px;
-  padding: 10px;
-  font-size: 16px;
-  background-color: orangered;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+/* Mindlist Section */
+.mindlist-header {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 24px;
+  text-align: center;
 }
 
-.search-button:hover {
-  background-color: #3e8e41;
+.mindlist-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px; /* Adjusted for better spacing */
+  padding: 20px;
+  width: 90%;
+}
+
+.mindlist-item {
+  width: 120px; /* Increased size */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.mindlist-image {
+  width: 100px; /* Increased size */
+  height: 100px; /* Increased size */
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.mindlist-image:hover {
+  transform: scale(1.1);
+}
+
+.mindlist-text {
+  margin-top: 12px; /* Adjusted spacing */
+  font-size: 16px; /* Slightly larger font */
+  font-weight: 500;
+  color: #333;
+}
+
+/* Restaurant List */
+.Restaurant-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.Res-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
 }
 
 /* Responsive Design */
-
-/* For Tablets and Smaller Screens */
 @media (max-width: 768px) {
-  .Body-container {
-    min-height: auto; /* Let content determine the height */
-    padding: 20px; /* Add some space around the body */
+  .mindlist-container {
+    gap: 20px;
   }
 
-  .search-container {
-    width: 90%; /* Increase width for smaller screens */
-    flex-direction: column; /* Stack the search box and button vertically */
-    align-items: stretch; /* Stretch the items to full width */
-    margin-top: 16px; /* Reduce margin between sections */
+  .mindlist-item {
+    width: 100px;
   }
 
-  .search-box {
-    width: 100%; /* Make the search box full width on smaller screens */
-    margin-bottom: 10px; /* Add some space between the search box and button */
+  .mindlist-image {
+    width: 80px;
+    height: 80px;
   }
 
-  .search-button {
-    width: 100%; /* Make the search button full width on smaller screens */
+  .mindlist-text {
+    font-size: 14px;
   }
 }
 
-/* For Mobile Devices */
 @media (max-width: 480px) {
-  .Body-container {
-    min-height: auto; /* Let content determine the height */
-    padding: 20px; /* Add padding for smaller screens */
+  .mindlist-container {
+    gap: 10px;
   }
 
-  .search-container {
-    width: 95%; /* Make the container wider on mobile */
-    padding: 12px; /* Reduce padding for a tighter layout */
+  .mindlist-item {
+    width: 80px;
   }
 
-  .search-box {
-    width: 100%; /* Search box takes full width */
-    height: 35px; /* Reduce height on smaller screens */
-    font-size: 14px; /* Slightly smaller font size */
+  .mindlist-image {
+    width: 60px;
+    height: 60px;
   }
 
-  .search-button {
-    width: 100%; /* Button takes full width */
-    height: 35px; /* Reduce button height */
-    font-size: 14px; /* Smaller font size */
+  .mindlist-text {
+    font-size: 12px;
   }
 }
 
-/* For Larger Screens (e.g., Desktops) */
-@media (min-width: 1024px) {
-  .Body-container {
-    min-height: auto; /* Let content determine the height */
-  }
 
-  .search-container {
-    width: 60%; /* Reduce the width on large screens for more space around */
-    margin-top: 40px; /* Add extra space on larger screens */
-  }
+.mindlist-container {
+  display: flex;
+  flex-wrap: nowrap; /* Prevent wrapping to a new line */
+  justify-content: center;
+  gap: 30px; /* Adjust the gap as needed */
+  padding: 20px;
+  width: 90%;
+  overflow-x: auto; /* Add horizontal scrolling */
+}
 
-  .search-box {
-    width: 75%; /* Set search box width back to 75% on large screens */
-  }
+.mindlist-item {
+  width: 150px; /* Adjust the width as needed */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
 
-  .search-button {
-    width: 20%; /* Keep the button at 20% width */
-  }
+.mindlist-image {
+  width: 120px; /* Adjust the width as needed */
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.mindlist-container {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 30px;
+  padding: 20px;
+  width: 90%;
+  overflow-x: hidden; /* Hide the horizontal scrollbar */
+}
+
+
+.mindlist-item {
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: #f7f7f7; /* Set background color to grey */
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.mindlist-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  background-color: #f7f7f7; /* Set background color to grey */
+}
+
+
+.mindlist-header {
+  
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 24px;
+  text-align: left; /* Align text to the left */
+}
+
+.mindlist-header {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 24px;
+  text-align: left !important; /* Add !important to override any other styles */
+  margin-left: 20px; /* Add a left margin to move the heading away from the center */
+}
+
+.mindlist-text {
+  display: none; /* Hide the text overlay */
 }
