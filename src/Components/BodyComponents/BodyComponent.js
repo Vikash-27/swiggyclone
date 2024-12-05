@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import BodyComponentCSS from "../../CSSFolder/BodyCSS/BodyComponentCSS.css";
 import RestaurantCardComponent from "./RestaurantCardComponent";
 import ShimmerComponent from "./ShimmerComponent";
+import ShimmerMindListComponent from '../BodyComponents/ShimmerMindListComponent'// Import the new shimmer component
 import { link } from "../../Assets/Constants";
 import { Link } from "react-router-dom";
 
@@ -80,7 +81,7 @@ const BodyComponent = () => {
             </div>
           ))
         ) : (
-          <p>Loading Mindlist...</p>
+          <ShimmerMindListComponent /> // Correct comment syntax here
         )}
       </div>
 
