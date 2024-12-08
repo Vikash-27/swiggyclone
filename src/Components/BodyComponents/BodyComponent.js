@@ -5,6 +5,7 @@ import ShimmerComponent from "./ShimmerComponent";
 import ShimmerMindlistComponent from "./ShimmerMindListComponent"; // Import the new shimmer component
 import { link } from "../../Assets/Constants";
 import { Link } from "react-router-dom";
+import RestaurantMenu from "./RestaurantMenu";
 
 const BodyComponent = () => {
   const [restaurants, setRestaurants] = useState([]);
@@ -23,13 +24,17 @@ const BodyComponent = () => {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data = await response.json();
-        const restaurantList =
-          data?.data?.cards?.[4]?.card?.card?.gridElements?.infoWithStyle
-            ?.restaurants;
-        const sampleData =
-          data?.data?.cards?.[0]?.card?.card?.gridElements?.infoWithStyle?.info;
+        console.log("API Response Data:", data); // Log the complete response
 
-        setMindList(sampleData); // Save "mindlist" data
+
+        // Extract restaurant data
+        const restaurantList =
+          data?.data?.cards?.[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
+          console.log("Extracted Restaurant List:", restaurantList); 
+        const sampleData =
+          data?.data?.cards?.[0]?.card?.card?.gridElements?.infoWithStyle?.info || [];
+
+        setMindList(sampleData); // Ensure mindlist is always an array
         setRestaurants(restaurantList);
         setFilteredRestaurants(restaurantList);
         setIsLoaded(true);
@@ -69,7 +74,7 @@ const BodyComponent = () => {
 
       {/* Mindlist Rendering */}
       <div className="mindlist-container">
-        {isLoaded && mindlist?.length > 0 ? (
+        {isLoaded && (mindlist?.length || 0) > 0 ? (
           mindlist.map((item, index) => (
             <div key={index} className="mindlist-item">
               <img
@@ -81,15 +86,14 @@ const BodyComponent = () => {
             </div>
           ))
         ) : (
-          <ShimmerMindlistComponent /> // Correct comment syntax here
+          <ShimmerMindlistComponent />
         )}
       </div>
 
       {/* Restaurants Section */}
       <h2 style={{ fontSize: "24px", fontWeight: "bold", marginTop: "40px", color: "#333" }}>
-  Restaurants with online food delivery in Vizag
-</h2>
- {/* Added Heading for Restaurants */}
+        Restaurants with online food delivery in Vizag
+      </h2>
 
       {/* Restaurant List */}
       <div className="Restaurant-container">
@@ -97,10 +101,10 @@ const BodyComponent = () => {
           {isLoaded ? (
             filteredRestaurants.length > 0 ? (
               filteredRestaurants.map((restaurant) => (
-                <RestaurantCardComponent
-                  key={restaurant.id}
-                  restaurant={restaurant}
-                />
+                <Link to={`/restaurant/${restaurant.info.id}`} key={restaurant.info.id} className="restaurant-card-link">
+    <RestaurantCardComponent restaurant={restaurant} />
+</Link>
+
               ))
             ) : (
               <p>No restaurants found</p>

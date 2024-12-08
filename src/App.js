@@ -6,6 +6,7 @@ import HeaderComponent from './Components/HeaderComponents/HeaderComponent';
 import About from './Components/HeaderComponents/About';
 import Cart from './Components/HeaderComponents/Cart';
 import Contact from './Components/HeaderComponents/Contact';
+import RestaurantMenu from './Components/BodyComponents/RestaurantMenu';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path = "/restaurant/:resID" element = {<RestaurantMenu/>}></Route>
         </Routes>
         {/* <FooterComponent /> */}
       </div>

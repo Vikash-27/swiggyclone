@@ -213,3 +213,14 @@
 .mindlist-text {
   display: none; /* Hide the text overlay */
 }
+
+
+/* Remove link styling */
+.restaurant-card-link {
+  text-decoration: none; /* Removes underline */
+  color: inherit; /* Inherits the color from its parent container */
+}
+
+.restaurant-card-link:hover {
+  text-decoration: none; /* Ensure no underline on hover */
+}
